@@ -1,5 +1,3 @@
-require "oga"
-
 module Njord
   module ParseLastPageNumber
     def self.call(body)
