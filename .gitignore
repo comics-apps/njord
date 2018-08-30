@@ -1,2 +1,5 @@
 /tmp/*
 !/tmp/.gitkeep
+
+/.env.development.local
+/.env.test.local
