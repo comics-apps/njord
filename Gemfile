@@ -6,6 +6,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem "dotenv"
 gem "oga"
+gem "que"
 gem "rake"
 gem "useragents", github: "debbbbie/useragents-rb"
 
