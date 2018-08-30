@@ -1,6 +1,10 @@
+ENV["RUBY_ENV"] = "test"
+
 require "webmock/rspec"
 
 require_relative "../lib/njord"
+
+Environment.load
 
 Dir.glob("spec/support/**/*.rb").each { |f| require "./#{f}" }
 

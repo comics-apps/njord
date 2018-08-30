@@ -1,5 +1,13 @@
 describe Environment do
+  after do
+    ENV["RUBY_ENV"] = "test"
+  end
+
   context "by default" do
+    before do
+      ENV.delete("RUBY_ENV")
+    end
+
     it "load Dotenv with development files" do
       expect(Dotenv)
         .to receive(:load)
@@ -10,14 +18,6 @@ describe Environment do
   end
 
   context "with RUBY_ENV=test" do
-    before do
-      ENV["RUBY_ENV"] = "test"
-    end
-
-    after do
-      ENV.delete("RUBY_ENV")
-    end
-
     it "load Dotenv for specified environment" do
       expect(Dotenv)
         .to receive(:load)
@@ -30,10 +30,6 @@ describe Environment do
   context "with RUBY_ENV different than development and test" do
     before do
       ENV["RUBY_ENV"] = "foo"
-    end
-
-    after do
-      ENV.delete("RUBY_ENV")
     end
 
     it "load Dotenv for specified environment" do

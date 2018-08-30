@@ -1,9 +1,12 @@
 require "dotenv"
 require "net/http"
 require "oga"
+require "pg"
+require "sequel"
 require "uri"
 require "useragents"
 
+require_relative "database"
 require_relative "environment"
 
 require_relative "njord/fetch"

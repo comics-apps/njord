@@ -9,6 +9,10 @@ gem "oga"
 gem "rake"
 gem "useragents", github: "debbbbie/useragents-rb"
 
+# Database
+gem "pg"
+gem "sequel"
+
 group :test do
   gem "rspec"
   gem "webmock"
