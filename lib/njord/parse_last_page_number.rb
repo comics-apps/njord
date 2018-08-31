@@ -1,7 +1,7 @@
 module Njord
   module ParseLastPageNumber
     def self.call(body)
-      Oga.parse_html(body)
+      Nokogiri::HTML(body)
         .xpath('//div[@class="pagenavi"]/a')
         .to_a
         .last

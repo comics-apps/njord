@@ -1,16 +1,16 @@
 namespace :db do
   desc "Create database"
-  task :create => :environment do
+  task :create do
     Database.instance.create
   end
 
   desc "Drop database"
-  task :drop => :environment do
+  task :drop do
     Database.instance.drop
   end
 
   desc "Run migrations"
-  task :migrate => :environment do
+  task :migrate do
     Sequel.extension(:migration)
     version = ENV["VERSION"] ? ENV["VERSION"].to_i : nil
     Sequel::Migrator.run(

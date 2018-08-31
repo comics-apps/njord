@@ -1,3 +1,5 @@
+require "singleton"
+
 require_relative "database/config"
 require_relative "database/connection"
 require_relative "database/database_url"

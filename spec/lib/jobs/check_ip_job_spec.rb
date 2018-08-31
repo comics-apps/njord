@@ -1,6 +1,7 @@
 describe CheckIpJob do
   let(:ip) { "123.123.123.123" }
   let(:port) { 9876 }
+  let(:time) { 11 }
 
   context "when proxy works" do
     before do
@@ -10,7 +11,7 @@ describe CheckIpJob do
 
     it "saves proxy in database" do
       expect {
-        CheckIpJob.run(ip, port)
+        CheckIpJob.run(ip, port, time)
       }.to change{ Database[:proxies].count }.by(1)
     end
   end
@@ -23,7 +24,7 @@ describe CheckIpJob do
 
     it "do not save it" do
       expect {
-        CheckIpJob.run(ip, port)
+        CheckIpJob.run(ip, port, time)
       }.not_to change{ Database[:proxies].count }
     end
   end
