@@ -1,6 +1,7 @@
 require_relative "database/config"
 require_relative "database/connection"
 require_relative "database/database_url"
+require_relative "database/dataset"
 require_relative "database/execute"
 
 class Database
@@ -10,4 +11,5 @@ class Database
   include Connection
   include DatabaseUrl
   include Execute
+  extend Dataset
 end
