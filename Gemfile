@@ -17,6 +17,10 @@ gem "sequel"
 gem "que"
 gem "bunny"
 
+group :development do
+  gem "foreman"
+end
+
 group :test do
   gem "rspec"
   gem "webmock"
