@@ -36,9 +36,9 @@ describe Njord::LoadProxies do
       expect(statuses).to match_array(%w(checked))
     end
 
-    it "returns 1 proxy by default" do
+    it "returns all proxy by default" do
       result = Njord::LoadProxies.call(:checked)
-      expect(result.size).to eq(1)
+      expect(result.size).to eq(2)
     end
 
     it "returns more proxies sorted by time" do

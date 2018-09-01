@@ -1,7 +1,7 @@
 module Njord
   module DeleteProxies
     def self.call(**options)
-      Database[:proxies].delete
+      Database[:proxies].where(options).delete
     end
   end
 end

@@ -22,8 +22,11 @@ module Njord
     private_class_method :load_unchecked
 
     def self.load_checked(options)
-      Database[:proxies]
-        .where(status: "checked").order(:time).limit(options[:count] || 1).all
+      scope = Database[:proxies].where(status: "checked").order(:time)
+      if options[:count]
+        scope = scope.limit(options[:count].to_i)
+      end
+      scope.all
     end
     private_class_method :load_checked
   end

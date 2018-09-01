@@ -13,7 +13,14 @@ module Njord
       exchange.publish(parse_proxies(proxies), key: queue.name)
 
       connection.close
+
+      DeleteProxies.call(id: proxy_ids(proxies))
     end
+
+    def self.proxy_ids(proxies)
+      proxies.map{ |proxy| proxy[:id] }
+    end
+    private_class_method :proxy_ids
 
     def self.parse_proxies(proxies)
       proxies.map { |proxy| "#{proxy[:ip]}:#{proxy[:port]}" }.join(";")

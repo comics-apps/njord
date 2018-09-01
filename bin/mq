@@ -2,6 +2,11 @@
 
 require_relative "../lib/njord"
 
+# startup action
+Database[:proxies].delete
+CheckProxiesJob.enqueue
+
+# message queue
 connection = Bunny.new
 connection.start
 channel = connection.create_channel
@@ -13,9 +18,7 @@ begin
     puts " [x] Consumed the message: []"
 
     count = body.to_i
-    Njord::DeleteProxies.call
-    FindProxiesJob.enqueue
-    SendProxiesJob.enqueue(count)
+    Njord::SendProxiesJob.enqueue(count)
   end
 rescue Interrupt => _
   connection.close
