@@ -14,9 +14,9 @@
 
 1. Load unused proxies from database
 
-1. For each proxy run background job `CheckProxy`
+1. For each proxy run background job `CheckAndPersistProxy`
 
-## CheckProxy
+## CheckAndPersistProxy
 
 1. When proxy is valid save or update proxy in database
 
@@ -24,7 +24,7 @@
 
 1. Load proxies from proxy site
 
-1. For each proxy run background job `CheckProxy`
+1. For each proxy run background job `CheckAndPersistProxy`
 
 ## SendProxies
 

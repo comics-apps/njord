@@ -17,7 +17,9 @@ module Njord
           response_time: cols[7].text.to_i
         }
 
-        CheckIpJob.enqueue(proxy[:ip], proxy[:port], proxy[:response_time])
+        CheckAndPersistProxyJob.enqueue(
+          proxy[:ip], proxy[:port], proxy[:response_time]
+        )
         proxies << proxy
       end
 

@@ -1,5 +1,9 @@
-describe Njord::ParseLastPageNumber do
+describe Njord::ParseProxies do
   let(:body) { fixture("proxy_page.html") }
+
+  before do
+    allow(CheckAndPersistProxyJob).to receive(:enqueue)
+  end
 
   it "returns proxy list" do
     result = Njord::ParseProxies.call(body)
