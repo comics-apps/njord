@@ -1,3 +1,4 @@
+require "bunny"
 require "dotenv"
 require "net/http"
 require "nokogiri"
@@ -15,6 +16,8 @@ require_relative "jobs/check_proxies_job"
 require_relative "jobs/find_proxies_job"
 require_relative "jobs/send_proxies_job"
 
+require_relative "njord/delete_proxies"
+require_relative "njord/delete_proxy"
 require_relative "njord/fetch"
 require_relative "njord/find"
 require_relative "njord/load_proxies"

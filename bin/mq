@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/njord"
+
+connection = Bunny.new
+connection.start
+channel = connection.create_channel
+queue = channel.queue("need_proxies")
+
+begin
+  puts " [*] Waiting for messages. To exit press CTRL+C"
+  queue.subscribe(block: true) do |_delivery_info, _properties, body|
+    puts " [x] Consumed the message: []"
+
+    count = body.to_i
+    Njord::DeleteProxies.call
+    FindProxiesJob.enqueue
+    SendProxiesJob.enqueue(count)
+  end
+rescue Interrupt => _
+  connection.close
+  exit(0)
+end
