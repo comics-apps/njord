@@ -12,6 +12,7 @@ gem "useragents", github: "debbbbie/useragents-rb"
 # Database
 gem "pg"
 gem "sequel"
+gem "bifrost", github: "comics-apps/bifrost"
 
 # Processing work
 gem "que"

@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/comics-apps/bifrost
+  revision: 7428633d6bef379c933ce1152d1dd14bf24785f9
+  specs:
+    bifrost (0.1.0)
+
+GIT
   remote: https://github.com/debbbbie/useragents-rb
   revision: 8450587f3d011d8d2e8a22e822ef0522f3e49e95
   specs:
@@ -52,6 +58,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bifrost!
   bunny
   dotenv
   foreman
