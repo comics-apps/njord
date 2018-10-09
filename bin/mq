@@ -18,7 +18,7 @@ begin
     puts " [x] Consumed the message: []"
 
     count = body.to_i
-    Njord::SendProxiesJob.enqueue(count)
+    SendProxiesJob.enqueue(count, priority: 2)
   end
 rescue Interrupt => _
   connection.close

@@ -5,7 +5,7 @@ class SendProxiesJob < Que::Job
     if proxies.size == count
       Njord::SendProxies.call(proxies)
     else
-      SendProxiesJob.enqueue(count, run_at: Time.now + 5)
+      SendProxiesJob.enqueue(count, run_at: Time.now + 5, priority: 2)
     end
   end
 end
